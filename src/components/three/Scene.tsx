@@ -19,10 +19,19 @@ function Particles({ count = 1000 }) {
   }, [count]);
 
   useFrame((state) => {
-    const { clock } = state;
+    const { clock, pointer } = state;
     if (points.current) {
-      points.current.rotation.y = clock.getElapsedTime() * 0.05;
-      points.current.rotation.x = clock.getElapsedTime() * 0.03;
+      const time = clock.getElapsedTime();
+      
+      // Calculate target rotations:
+      // Y: Constant slow spin + mouse horizontal movement
+      // X: Mouse vertical movement (inverted for natural feel)
+      const targetRotationY = time * 0.05 + pointer.x * 0.5;
+      const targetRotationX = -pointer.y * 0.5;
+
+      // Smoothly interpolate current rotation to target (0.1 = damping factor)
+      points.current.rotation.y += (targetRotationY - points.current.rotation.y) * 0.1;
+      points.current.rotation.x += (targetRotationX - points.current.rotation.x) * 0.1;
     }
   });
 
@@ -45,13 +54,7 @@ function Particles({ count = 1000 }) {
   );
 }
 
-function Grid() {
-  return (
-    <group rotation={[Math.PI / 2, 0, 0]} position={[0, -2, 0]}>
-      <gridHelper args={[20, 20, "#bc13fe", "#0a0a0a"]} />
-    </group>
-  );
-}
+
 
 export default function Scene() {
   return (
@@ -64,7 +67,7 @@ export default function Scene() {
         <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
           <Particles count={2000} />
         </Float>
-        <Grid />
+
         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       </Canvas>
     </div>

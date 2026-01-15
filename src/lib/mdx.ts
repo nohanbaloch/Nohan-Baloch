@@ -25,7 +25,9 @@ export function getAllPostSlugs() {
 }
 
 export function getWorkBySlug(slug: string) {
-  const fullPath = path.join(WORK_CONTENT_PATH, `${slug}.mdx`);
+  // New structure: src/content/work/[slug]/index.mdx
+  const fullPath = path.join(WORK_CONTENT_PATH, slug, "index.mdx");
+  
   if (!fs.existsSync(fullPath)) return null;
   
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -40,5 +42,8 @@ export function getWorkBySlug(slug: string) {
 
 export function getAllWorkSlugs() {
   if (!fs.existsSync(WORK_CONTENT_PATH)) return [];
-  return fs.readdirSync(WORK_CONTENT_PATH).filter(f => f.endsWith('.mdx')).map((file) => file.replace(/\.mdx$/, ""));
+  // Return subdirectories in src/content/work
+  return fs.readdirSync(WORK_CONTENT_PATH, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
 }
