@@ -6,6 +6,7 @@ import Image from "next/image";
 import { animate, stagger } from "animejs";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -32,9 +33,19 @@ export default function Hero() {
             Available for Projects
           </div>
           
-          <h1 className="hero-text-item text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+          <h1 className="hero-text-item text-4xl md:text-6xl font-extrabold leading-tight mb-6 min-h-[140px] md:min-h-[160px]">
             Building <br />
-            <span className="text-gradient">Intelligent</span> Future
+            <span className="text-gradient">
+              <Typewriter
+                options={{
+                  strings: ['Intelligent Systems', 'Neural Networks', 'Scalable Solutions'],
+                  autoStart: true,
+                  loop: true,
+                  delay: 50,
+                  deleteSpeed: 30,
+                }}
+              />
+            </span>
           </h1>
           
           <p className="hero-text-item text-lg text-muted max-w-lg mb-8">
@@ -61,16 +72,28 @@ export default function Hero() {
           
           <div className="hero-text-item flex items-center gap-6">
             <a 
+              href="https://github.com/Mehrtek" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="Mehrtek (Organization)"
+              aria-label="Mehrtek GitHub"
+              className="text-muted hover:text-accent transition-colors flex items-center gap-2 group/github"
+            >
+              <Github className="w-6 h-6" />
+              <span className="text-xs font-bold opacity-0 group-hover/github:opacity-100 transition-opacity -ml-2 group-hover/github:ml-0 overflow-hidden w-0 group-hover/github:w-auto">Mehrtek</span>
+            </a>
+            <a 
               href="https://github.com/nohanbaloch" 
               target="_blank" 
               rel="noopener noreferrer" 
-              aria-label="GitHub Profile"
+              title="Nohan Baloch (Personal)"
+              aria-label="Nohan Baloch GitHub"
               className="text-muted hover:text-accent transition-colors"
             >
               <Github className="w-6 h-6" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/nohan-baloch/"  
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="LinkedIn Profile"
@@ -79,7 +102,7 @@ export default function Hero() {
               <Linkedin className="w-6 h-6" />
             </a>
             <a 
-              href="mailto:hello@example.com" 
+              href="mailto:[EMAIL_ADDRESS]" 
               aria-label="Send Email"
               className="text-muted hover:text-accent transition-colors"
             >

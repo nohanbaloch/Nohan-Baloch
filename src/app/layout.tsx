@@ -9,16 +9,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Nohan Baloch | AI Engineer & Frontend Developer",
-  description: "Portfolio of Nohan Baloch, an AI major specializing in Deep Learning, ML, and Modern Web Development.",
-  keywords: ["Nohan Baloch", "AI Engineer", "Deep Learning", "Machine Learning", "Frontend Developer", "Python", "Next.js"],
+  title: "Mehrtek | Architecting Intelligent Systems",
+  description: "Mehrtek specializes in high-performance AI architectures, deep learning systems, and modern web engineering.",
+  keywords: ["Mehrtek", "AI Engineer", "Deep Learning", "Machine Learning", "System Architecture", "Python", "Next.js"],
   openGraph: {
-    title: "Nohan Baloch | AI Engineer & Frontend Developer Portfolio",
-    description: "Showcase of AI projects and web engineering excellence by Nohan Baloch.",
+    title: "Mehrtek | Architecting Intelligent Systems",
+    description: "Specialized in high-performance architectures and intelligent systems using the most advanced tools in the industry.",
     type: "website",
     locale: "en_US",
   },
 };
+
 
 export default function RootLayout({
   children,
