@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-inter antialiased bg-background text-foreground`}>
         <Analytics />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
