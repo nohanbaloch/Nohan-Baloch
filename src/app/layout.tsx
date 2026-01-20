@@ -10,11 +10,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mehrtek | Architecting Intelligent Systems",
+  title: "Nohan Baloch | Architecting Intelligent Systems",
   description: "Mehrtek specializes in high-performance AI architectures, deep learning systems, and modern web engineering.",
   keywords: ["Mehrtek", "AI Engineer", "Deep Learning", "Machine Learning", "System Architecture", "Python", "Next.js"],
   openGraph: {
-    title: "Mehrtek | Architecting Intelligent Systems",
+    title: "Nohan Baloch | Architecting Intelligent Systems",
     description: "Specialized in high-performance architectures and intelligent systems using the most advanced tools in the industry.",
     type: "website",
     locale: "en_US",

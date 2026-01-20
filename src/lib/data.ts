@@ -31,7 +31,7 @@ export const skills: Skill[] = [
 ];
 
 export const siteConfig = {
-    title: "Mehrtek",
+    title: "Nohan Baloch",
     description: "Specialized in high-performance architectures and intelligent systems using the most advanced tools in the industry.",
-    footerText: `© ${new Date().getFullYear()} Mehrtek. All rights reserved.`
+    footerText: `© ${new Date().getFullYear()} Nohan Baloch. All rights reserved.`
 }
