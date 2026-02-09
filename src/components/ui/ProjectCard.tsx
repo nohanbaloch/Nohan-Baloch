@@ -11,6 +11,7 @@ interface ProjectCardProps {
   description: string;
   tags: string[];
   link: string;
+  liveLink?: string;
   image?: string;
   className?: string;
 }
@@ -20,6 +21,7 @@ export default function ProjectCard({
   description,
   tags,
   link,
+  liveLink,
   className,
 }: ProjectCardProps) {
   return (
@@ -39,7 +41,7 @@ export default function ProjectCard({
         </div>
 
         <div className="flex flex-col h-full">
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap items-center gap-2 mb-6">
             {tags.map((tag) => (
               <span
                 key={tag}
@@ -48,6 +50,11 @@ export default function ProjectCard({
                 {tag}
               </span>
             ))}
+            {liveLink && (
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white px-2 py-1 rounded bg-green-500/20 border border-green-500/40 animate-pulse">
+                Live
+              </span>
+            )}
           </div>
 
           <h3 className="text-2xl font-bold mb-4 group-hover:text-accent transition-colors">
